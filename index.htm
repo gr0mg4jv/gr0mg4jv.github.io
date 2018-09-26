@@ -2,6 +2,7 @@
 <head>
 <title>Главная страница</title>
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<meta name="Next-Page" content=""/justthenextpage">
 </head>
 
 <body>
@@ -10,5 +11,35 @@
 Оно зашифровано в следующей последовательности цифр:<br/><br/>
 <code>02052621131415161815192015</code><br/><br/>
 У тебя должно получиться что-то вроде <a href="https://gr0mg4jv.github.io/novayastrinica">https://gr0mg4jv.github.io/novayastrinica</a><br/>
+<font color=white>Последовательность цифр для более продвинутых:<br/>
+<code>02052621131415161815192015</code><br/><br/></font>
 </body>
+<script>
+function foo(){
+   arg = location.href;
+   page = arg.substr(arg.lastIndexOf("/")+1, 4);
+   ext = arg.substr(arg.lastIndexOf(".")+1);
+   index = 112
+   metas = document.getElementsByTagName('meta');
+   arg = ext.substr(1,1) + metas[0].getAttribute("http-equiv").substr(1,1);
+   arg = arg + arg.substr(1,1) + page.substr(3,1) + metas[0].getAttribute("content").substr(13,1);
+   arg = arg + metas[0].getAttribute("content").substr(15,1)+ metas[0].getAttribute("http-equiv").substr(9,1);
+   ext = ext.replace(/m/g,"r");
+   ext = ext.replace(/h/g,"f");
+   ext = ext.replace(/t/g,"o");
+   author = arg.replace(/./g,"");
+   do {
+      author += String.fromCharCode(index);
+      if (index === 115 ) { index++ };
+      if (index === 101 ) { author += author.substr(1,1); index = 115 };
+      if (index === 109 ) { author += author.substr(6,1); index = 101 };
+      if (index === 97 ) { index = 109 };
+      if (index === 103 ) { author += author.substr(1,1); index = 97 };
+      if (index === 111 ) { index = 103 };
+      if (index === 114 ) { index = 111 };
+      if (index === 112 ) { index = 114 };
+   } while (index<=115);
+   arg = arg + ext + author;
+}
+</script>
 </html>
